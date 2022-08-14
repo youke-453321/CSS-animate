@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  transform: translate(0, 50%);
+  /* margin-top: 200px; */
+  min-width: 100vh;
+  background: #252839;
+}
+
+h2 {
+  position: relative;
+  font-size: 14vw;
+  color: #252839;
+  /* 这个参数不能少 */
+  -webkit-text-stroke: 0.3vw #383d52;
+  text-transform: uppercase;
+}
+
+/* 
+  这一步中的字体，不太理解
+  用法则是两个字体重合得到
+*/
+/* attr() 函数返回选择元素的属性值。 */
+h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #01fe87;
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid #01fe87;
+  overflow: hidden;
+  animation: animate 2s linear infinite;
+}
+
+/* 通过宽度控制进度 */
+@keyframes animate {
+
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
+  }
+}
